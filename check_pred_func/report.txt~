@@ -1,0 +1,50 @@
+
+
+TEST1.
+
+str = "Line1-abcdef \nLine2-abc \nLine4-abcd";
+REP_COUNT = 10**9
+
+match2 using RE - is ~3 times slower than the split variant
+
+
+[~/Projects/experiments/python_metch_perf]$ python match_perf.py 
+
+
+         5000003 function calls in 24.271 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000   24.271   24.271 <string>:1(<module>)
+  1000000    3.653    0.000    5.522    0.000 match_perf.py:11(match1)
+  1000000    7.195    0.000   14.266    0.000 match_perf.py:25(match2)
+        1    4.483    4.483   24.271   24.271 match_perf.py:32(test)
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+  2000000    7.071    0.000    7.071    0.000 {method 'search' of '_sre.SRE_Pattern' objects}
+  1000000    1.869    0.000    1.869    0.000 {method 'split' of 'str' objects}
+
+TEST2.
+
+
+str = "Line1-abcdef \nLine2-abc \nLine4-abcd" * 100;
+REP_COUNT = 10**5;
+
+
+         500003 function calls in 15.056 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000   15.056   15.056 <string>:1(<module>)
+   100000    0.663    0.000    2.415    0.000 match_perf.py:19(match1)
+   100000    0.543    0.000   12.231    0.000 match_perf.py:33(match2)
+        1    0.410    0.410   15.056   15.056 match_perf.py:38(test)
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+   200000   11.688    0.000   11.688    0.000 {method 'search' of '_sre.SRE_Pattern' objects}
+   100000    1.753    0.000    1.753    0.000 {method 'split' of 'str' objects}
+
+
+Conclusion: 
+    match2 is ~5 times slower than match1.
+

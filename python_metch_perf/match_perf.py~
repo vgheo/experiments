@@ -1,0 +1,53 @@
+#!/usr/bin/python
+
+#
+
+import re
+import cProfile
+
+REP_COUNT = 10**5
+
+str0 = "Line1-abcdef \nLine2-abc \nLine4-abcd";
+
+str  = str0 *100;
+
+
+
+s1 = "Line2-abc";
+s2 = "xyz"
+
+def match1():
+    return s1 in str.split() \
+        or s2 in str.split()
+
+
+re1 = re.compile("\\b" + s1 + "\\b", re.MULTILINE);
+re2 = re.compile("\\b" + s2 + "\\b", re.MULTILINE);
+
+
+def printMatch(match):
+    if match: print match.group(0); 
+    else: print "None"
+
+
+def match2():
+    m1 = re1.search(str)
+    m2 = re2.search(str)
+    return m1 or m2
+
+def test():
+
+    i=REP_COUNT
+    while i>0:
+        match1();
+        i=i-1
+
+
+    i=REP_COUNT
+    while i>0:
+        match2();
+        i=i-1
+
+
+cProfile.run('test()')
+
