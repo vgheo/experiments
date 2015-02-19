@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<functionalityList elementType="PT">
+
+	<analysis>
+		<schema>
+			<criterion var="routeType" />
+		</schema>
+		
+		<case val="MR">
+			<analysis>
+				<schema>
+					<criterion var="C1">
+						<criterion var="C2">
+							<criterion var="C3" />
+						</criterion>
+					</criterion>
+				</schema>
+
+				<case val="1a">
+					<case val="2a">
+						<case val="3a">
+							<functionality routeCase="3" mark="X Y"
+								functionalityNo="6" allow="yes" real="yes">
+								<customer>NOR</customer>
+								<customer>DEN</customer>
+							</functionality>
+						</case>
+					</case>
+
+					<case val="2b">
+						<case val="3a">
+							<functionality/>
+
+						</case>
+					</case>
+				</case>
+			</analysis>
+		</case>
+
+		<case val="SR">
+
+		</case>
+	</analysis>
+
+</functionalityList>
+
