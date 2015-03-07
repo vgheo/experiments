@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<drx>
+	<m path='/a/b/c'>
+		<o id="1">
+			<a nm="a">abc</a>
+			
+			<o id="4">
+				<a nm="a">def</a>
+			</o>
+		</o>
+	
+		<o id="2">
+		</o>
+	</m>
+</drx>
