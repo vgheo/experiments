@@ -1,0 +1,18 @@
+digraph visited_states {
+graph [nodesep=1.5, ranksep=1.5];
+root [shape=invtriangle, color="#99BF38", fontsize=12, penwidth=2, label="root"];
+
+root -> 0 [style = dotted, color = black, label="SETUP_CONSTANTS(%(x,y).(x : STRING & y : STRING\|ST\nRING_APPEND/*EXT:*/(x,y)),%x.(x : STRING\|STRING_LEN\nGTH/*EXT:*/(x)),%(x,y).(x : STRING & y : STRING\|STR\nING_SPLIT/*EXT:*/(x,y)),%(x,y).(x : POW(INTEGER * S\nTRING) & y : STRING\|STRING_JOIN/*EXT:*/(x,y)),%s.(s\n : STRING\|STRING_CHARS/*EXT:*/(s)),%s.(s : STRING\|S\nTRING_CODES/*EXT:*/(s)),[\"abc\",\"defg\",\"hi\",\"j...", fontsize=12];
+
+0 [shape=box, color="#99BF38", fontsize=12, penwidth=2, label="append = %(x,y).(x : STRING & y : STRING\|STRING_APPEND/*EXT:*/(x,y)),length = %x.(x : STRING\|STRING_LENGTH/*EXT:*/(x)),split = %(x,y).(x : STRING & y : STRING\|STRING_SPLIT/*EXT:*/(x,y)),\njoin = %(x,y).(x : POW(INTEGER * STRING) & y : STRING\|STRING_JOIN/*EXT:*/(x,y)),chars = %s.(s : STRING\|STRING_CHARS/*EXT:*/(s)),codes = %s.(s : STRING\|STRING_CODES/*EXT:*/(s)),\ndata(1) = \"abc\",data(2) = \"defg\",data(3) = \"hi\",\ndata(4) = \"jklm\""];
+
+0 -> 1 [color = "#006391", label="INITIALISATION(\{\},0)", fontsize=12];
+
+1 [shape=box, color="#99BF38", fontsize=12, penwidth=2, label="prop_1 = \{\},process = 0"];
+
+1 -> 2 [color = "#006391", label="compute_prop_1", fontsize=12];
+
+2 [shape=doubleoctagon, color="#99BF38", fontsize=12, penwidth=2, label="prop_1 = \{\},process = 1"];
+
+
+}
